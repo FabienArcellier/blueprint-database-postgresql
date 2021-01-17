@@ -36,11 +36,19 @@ git clone https://github.com/FabienArcellier/blueprint-database-postgresql.git
 
 ## Usage
 
-You can run the application with the following command
+You load a local postgresql development database with the following command.
 
 ```bash
 make up
 ```
+
+This command will execute the following workflow :
+
+1. load a postgresql instance through ``docker``
+2. ensure the database `postgres` exists (or the one configured through the environment variable ``DATABASE_URL``)
+3. stop the postgresql
+4. load the postgresql instance and keep it running
+
 
 ## Developper guideline
 
