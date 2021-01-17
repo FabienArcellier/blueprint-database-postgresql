@@ -12,8 +12,13 @@ jobs:
         steps:
             -   uses: actions/checkout@v2
 
+            -   name: install pipenv requirement
+                run: 
+                    pip install pipenv
+
             -   name: install requirements
-                run:
+                run: |
+                    pip install pipenv
                     make install_requirements_dev
 
             -   name: run continuous integration process

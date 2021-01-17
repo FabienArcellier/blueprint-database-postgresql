@@ -1,6 +1,6 @@
 ## blueprint-database-postgresql
 
-[![Build Status](https://travis-ci.org/FabienArcellier/blueprint-cli-multicommands-python.svg?branch=master)](https://travis-ci.org/FabienArcellier/blueprint-cli-multicommands-python)
+![ci](https://github.com/FabienArcellier/blueprint-database-postgresql/workflows/ci/badge.svg)
 
 blueprint which contains the prerequisite to manage a database according
 to the pattern of evolutionary database design.
