@@ -1,0 +1,13 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+dbcli = {editable = true,extras = ["dev"],path = "dbcli"}
+
+[packages]
+dbcli = {editable = true,path = "dbcli"}
+
+[requires]
+python_version = "3.8"
