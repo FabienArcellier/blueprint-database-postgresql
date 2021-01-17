@@ -31,4 +31,5 @@ install_requirements: ## install pip requirements based on requirements.txt
 
 .PHONY: up
 up: ## run the database and execute dbli upgrade command
+	honcho -f Procfile.init start
 	docker-compose up

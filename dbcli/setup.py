@@ -18,7 +18,8 @@ setup(
     install_requires = [
         'click',
         'decorator',
-        'psycopg2-binary'
+        'psycopg2-binary',
+        'retrying'
     ],
     extras_require={
         'dev': [

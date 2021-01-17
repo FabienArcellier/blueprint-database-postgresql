@@ -84,15 +84,10 @@ make venv
 source venv/bin/activate
 ```
 
-### Run the linter and the unit tests
+## References
 
-Before commit or send a pull request, you have to execute `pylint` to check the syntax
-of your code and run the unit tests to validate the behavior.
-
-```bash
-make lint
-make tests
-```
+* [Heroku Dev Center - The Procfile](https://devcenter.heroku.com/articles/procfile)
+* [Honcho: manage Procfile-based applications](https://honcho.readthedocs.io/en/latest/)
 
 ## Contributors
 

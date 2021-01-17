@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 dbcli = {editable = true,extras = ["dev"],path = "dbcli"}
+honcho = "*"
 
 [packages]
 dbcli = {editable = true,path = "dbcli"}
