@@ -3,6 +3,8 @@ from urllib.parse import urlparse
 import psycopg2
 from retrying import retry
 
+from dbcli import logger
+
 
 class Database:
 
@@ -16,9 +18,14 @@ class Database:
         conn = psycopg2.connect(self.postgres_dsn)
         conn.autocommit = True
         cursor = conn.cursor()
-        cursor.execute(f"SELECT 1 AS result FROM pg_database WHERE datname='{self.database_name}'")
+        self._execute(cursor, f"SELECT 1 AS result FROM pg_database WHERE datname='{self.database_name}'")
         if cursor.rowcount == 0:
-            cursor.execute(f"CREATE DATABASE {self.database_name}")
+            query = f"CREATE DATABASE {self.database_name}"
+            self._execute(cursor, query)
+
+    def _execute(self, cursor, query):
+        logger().info(f"sql: {query}")
+        cursor.execute(query)
 
     @retry(wait_fixed=5000, stop_max_attempt_number=10)
     def ping(self):

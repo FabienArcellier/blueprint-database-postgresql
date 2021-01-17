@@ -26,6 +26,17 @@ The implementation requires :
 
 2. remove .git directory
 
+3. change the database name from ``simple`` to your own name into `dbcli/dbcli/env.py`
+
+### Deployment
+
+If you want to deploy an application that rely on dbcli, there is 2 options :
+
+* If you can override the environment variable ``DATABASE_URL``, through a docker-compose.yml file for exemple
+* If you can't, you should use a ``.env`` file at the root using the ``.env.tpl`` as base
+
+If you want to change the name of database on dev environnement, change the default value of `dbcli/dbcli/env.py`
+
 ## The latest version
 
 You can find the latest version to ...
@@ -48,7 +59,6 @@ This command will execute the following workflow :
 2. ensure the database `postgres` exists (or the one configured through the environment variable ``DATABASE_URL``)
 3. stop the postgresql
 4. load the postgresql instance and keep it running
-
 
 ## Developper guideline
 

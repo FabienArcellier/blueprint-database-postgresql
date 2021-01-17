@@ -22,6 +22,10 @@ clean: ## remove all transient directories and files
 	find -name __pycache__ -print0 | xargs -0 rm -rf
 	pipenv --rm
 
+.PHONY: down
+down: ## remove existing dev database
+	docker-compose down
+
 .PHONY: freeze_requirements
 freeze_requirements: ## update the project dependencies based on setup.py declaration
 	pipenv update

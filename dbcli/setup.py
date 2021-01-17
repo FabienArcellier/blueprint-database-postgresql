@@ -16,9 +16,12 @@ setup(
         ],
     },
     install_requires = [
+        'alembic',
         'click',
         'decorator',
+        'plumbum',
         'psycopg2-binary',
+        'python-dotenv',
         'retrying'
     ],
     extras_require={
