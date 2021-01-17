@@ -29,9 +29,18 @@ install_requirements_dev: ## install pip requirements for development
 install_requirements: ## install pip requirements based on requirements.txt
 	pipenv install
 
+.PHONY: lint
+lint: ## run pylint
+	cd dbcli; pipenv run pylint --rcfile=../.pylintrc dbcli
+
 .PHONY: tests
 tests: ## run the database and execute dbli upgrade command
+	$(MAKE) tests.dbcli
 	pipenv run honcho -f Procfile.init start
+
+.PHONY: tests.dbcli
+tests.dbcli: ## run the database and execute dbli upgrade command
+	pipenv run python -u -m unittest discover "dbcli/dbcli_tests"
 
 .PHONY: up
 up: ## run the database and execute dbli upgrade command

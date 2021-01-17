@@ -1,10 +1,13 @@
+# pylint: disable=broad-except
+
 import os
 
 import click
+
 from dbcli.database import Database
 
 
-@click.group()
+@click.group(help='cli to manage a postgresql database')
 def cli():
     pass
 
@@ -15,7 +18,7 @@ def ping():
     database = Database(connection_string)
     try:
         database.ping()
-        click.echo(f"host is ready")
+        click.echo("host is ready")
     except Exception as exception:
         click.echo(exception)
 
@@ -35,4 +38,4 @@ cli.add_command(ping)
 cli.add_command(init)
 
 if __name__ == '__main__':
-     cli()
+    cli()

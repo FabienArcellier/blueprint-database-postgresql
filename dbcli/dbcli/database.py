@@ -24,7 +24,7 @@ class Database:
     def ping(self):
         conn = psycopg2.connect(self.postgres_dsn)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT 1'")
+        cursor.execute("SELECT 1'")
 
     def _get_postgres_dsn(self, connection_string: str) -> str:
         """

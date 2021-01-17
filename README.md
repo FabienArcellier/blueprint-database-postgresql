@@ -1,4 +1,4 @@
-## blueprint-cli-multicommands-python
+## blueprint-database-postgresql
 
 [![Build Status](https://travis-ci.org/FabienArcellier/blueprint-cli-multicommands-python.svg?branch=master)](https://travis-ci.org/FabienArcellier/blueprint-cli-multicommands-python)
 
@@ -16,6 +16,7 @@ This blueprint could be used to :
 
 The implementation requires :
 
+* ``make``
 * ``postgresql``
 * ``python3.8``
 
@@ -24,11 +25,6 @@ The implementation requires :
 1. clone this repository
 
 2. remove .git directory
-
-3. use your library identifier as module name
-
-    * replace `mycommand`, `mycommand_tests` by your own identifier
-    * you have to change as well inside `Makefile`, `.coveragerc`, `tox.ini` and `setup.py`
 
 ## The latest version
 
@@ -43,7 +39,7 @@ git clone https://github.com/FabienArcellier/blueprint-database-postgresql.git
 You can run the application with the following command
 
 ```bash
-docker-compose up
+make up
 ```
 
 ## Developper guideline
@@ -80,8 +76,18 @@ When you setup the requirements, a `venv` directory on python 3 is created.
 To activate the venv, you have to execute :
 
 ```bash
-make venv
-source venv/bin/activate
+make activate
+```
+### Run the automatic tests
+
+```bash
+make test
+```
+
+### Run the dev environment
+
+```bash
+make up
 ```
 
 ## References
@@ -97,7 +103,7 @@ source venv/bin/activate
 
 MIT License
 
-Copyright (c) 2020 Fabien Arcellier
+Copyright (c) 2021 Fabien Arcellier
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
