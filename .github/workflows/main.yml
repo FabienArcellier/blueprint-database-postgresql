@@ -16,6 +16,6 @@ jobs:
                 run:
                     make install_requirements_dev
 
-            -   name: run automatic tests
+            -   name: run continuous integration process
                 run:
-                    make tests
+                    make ci

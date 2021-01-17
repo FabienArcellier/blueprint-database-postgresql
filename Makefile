@@ -2,6 +2,11 @@
 activate: ## activate the virtualenv associate with this project
 	pipenv shell
 
+.PHONY: ci
+ci: ## run the continuous integration process
+	$(MAKE) lint
+	$(MAKE) tests
+
 # @see http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
 .PHONY: help
