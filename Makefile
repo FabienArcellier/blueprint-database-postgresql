@@ -29,7 +29,12 @@ install_requirements_dev: ## install pip requirements for development
 install_requirements: ## install pip requirements based on requirements.txt
 	pipenv install
 
+.PHONY: tests
+tests: ## run the database and execute dbli upgrade command
+	pipenv run honcho -f Procfile.init start
+
 .PHONY: up
 up: ## run the database and execute dbli upgrade command
-	honcho -f Procfile.init start
+	pipenv run honcho -f Procfile.init start
 	docker-compose up
+

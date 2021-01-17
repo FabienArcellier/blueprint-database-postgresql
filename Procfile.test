@@ -1,2 +1,0 @@
-db: docker-compose up
-init: dbcli ping
