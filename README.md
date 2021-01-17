@@ -28,7 +28,9 @@ The implementation requires :
 
 3. change the database name from ``simple`` to your own name into `dbcli/dbcli/env.py`
 
-### Deployment
+## Advanced usage
+
+### Deploy dbcli on a remote server
 
 If you want to deploy an application that rely on dbcli, there is 2 options :
 
@@ -36,6 +38,25 @@ If you want to deploy an application that rely on dbcli, there is 2 options :
 * If you can't, you should use a ``.env`` file at the root using the ``.env.tpl`` as base
 
 If you want to change the name of database on dev environnement, change the default value of `dbcli/dbcli/env.py`
+
+### Manage 2 databases or more
+
+You should write a init.sh script that use the following configuration and create one
+alembic directory for each configuration.
+
+```bash
+export DATABASE_URL="postgresql://postgres:1234@localhost:5432/base1"
+export DATABASE_ALEMBIC_PATH="alembic/base1"
+dbcli init
+dbcli alembic:upgrade
+
+export DATABASE_URL="postgresql://postgres:1234@localhost:5432/base2"
+export DATABASE_ALEMBIC_PATH="alembic/base2"
+dbcli init
+dbcli alembic:upgrade
+```
+
+To create the new alembic configuration, copy the existing one in ``dbcli/alembic`` or use ``alembic init``
 
 ## The latest version
 

@@ -3,8 +3,6 @@ import os
 import sys
 
 ROOT_DIR = os.path.realpath(os.path.join(__file__, "..", ".."))
-DATABASE_ALEMBIC_PATH = ROOT_DIR
-
 
 def logger() -> logging.Logger:
     dbcli_logger = logging.getLogger('dbcli')

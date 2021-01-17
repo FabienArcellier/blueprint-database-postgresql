@@ -1,2 +1,2 @@
 db: docker-compose up
-init: dbcli init; dbcli alembic:upgrade
+init: dbcli init; dbcli alembic:upgrade;

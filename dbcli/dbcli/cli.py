@@ -4,9 +4,8 @@ import os
 
 import click
 
-from dbcli import DATABASE_ALEMBIC_PATH
 from dbcli.database import Database
-from dbcli.env import database_connection_string
+from dbcli.env import database_connection_string, database_alembic_path
 from dbcli.shell import command, run
 
 
@@ -25,7 +24,7 @@ def alembic_revision(message):
         args.append(message)
 
     alembic = command('alembic', "alembic is not initialized in your python environment")
-    os.chdir(DATABASE_ALEMBIC_PATH)
+    os.chdir(database_alembic_path())
     run(alembic, args)
 
 
@@ -36,7 +35,7 @@ def alembic_upgrade(revision):
     args = ['upgrade', revision]
 
     alembic = command('alembic', "alembic is not initialized in your python environment")
-    os.chdir(DATABASE_ALEMBIC_PATH)
+    os.chdir(database_alembic_path())
     run(alembic, args)
 
 
